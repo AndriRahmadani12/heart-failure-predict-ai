@@ -1,1 +1,196 @@
-<p>This is the frontend of the heart failure prediction AI.</p>
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heart Failure Prediction</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-50">
+    <div class="container mx-auto px-4 py-8 max-w-6xl">
+        <!-- Header -->
+        <div class="text-center mb-10">
+            <h1 class="text-4xl font-bold text-gray-800 mb-2">Heart Failure Prediction</h1>
+            <p class="text-gray-600">AI-Powered Health Analysis</p>
+        </div>
+
+        <!-- Main Content -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <!-- Input Form -->
+            <div class="bg-white rounded-xl shadow-lg p-6">
+                <h2 class="text-2xl font-semibold mb-6 text-gray-800">Patient Information</h2>
+                <form class="space-y-4">
+                    <div class="grid grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700">Age</label>
+                            <input type="number" placeholder="e.g., 45" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700">Sex</label>
+                            <select class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500">
+                                <option value="M">Male</option>
+                                <option value="F">Female</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700">Chest Pain Type</label>
+                            <select class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500">
+                                <option value="TA">Typical Angina</option>
+                                <option value="ATA">Atypical Angina</option>
+                                <option value="NAP">Non-Anginal Pain</option>
+                                <option value="ASY">Asymptomatic</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700">Resting Blood Pressure (mm Hg)</label>
+                            <input type="number" placeholder="e.g., 120" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500">
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700">Cholesterol (mm/dl)</label>
+                            <input type="number" placeholder="e.g., 200" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700">Fasting Blood Sugar</label>
+                            <select class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500">
+                                <option value="1">> 120 mg/dl</option>
+                                <option value="0"><= 120 mg/dl</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700">Resting ECG</label>
+                            <select class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500">
+                                <option value="Normal">Normal</option>
+                                <option value="ST">ST-T Abnormality</option>
+                                <option value="LVH">Left Ventricular Hypertrophy</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700">Max Heart Rate (bpm)</label>
+                            <input type="number" placeholder="e.g., 150" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500">
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700">Exercise-Induced Angina</label>
+                            <select class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500">
+                                <option value="Y">Yes</option>
+                                <option value="N">No</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700">Oldpeak (ST depression)</label>
+                            <input type="number" step="0.1" placeholder="e.g., 1.5" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700">ST Slope</label>
+                        <select class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500">
+                            <option value="Up">Up</option>
+                            <option value="Flat">Flat</option>
+                            <option value="Down">Down</option>
+                        </select>
+                    </div>
+
+                    <div class="flex space-x-4 mt-6">
+                        <button type="submit" class="flex-1 bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition duration-200">
+                            <i class="fas fa-brain mr-2"></i>Predict
+                        </button>
+                        <button type="reset" class="flex-1 bg-gray-200 text-gray-800 py-2 px-4 rounded-lg hover:bg-gray-300 transition duration-200">
+                            <i class="fas fa-redo mr-2"></i>Reset
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Result Section -->
+            <div class="bg-white rounded-xl shadow-lg p-6">
+                <div class="flex items-center mb-6">
+                    <i class="fas fa-robot text-3xl text-blue-600 mr-3"></i>
+                    <h2 class="text-2xl font-semibold text-gray-800">AI Analysis</h2>
+                </div>
+
+                <!-- Chat Interface -->
+                <div class="bg-gray-50 rounded-lg p-4 h-[500px] overflow-y-auto mb-4">
+                    <div class="space-y-4">
+                        <!-- AI Message -->
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0">
+                                <div class="h-8 w-8 rounded-full bg-blue-600 flex items-center justify-center">
+                                    <i class="fas fa-robot text-white"></i>
+                                </div>
+                            </div>
+                            <div class="ml-3 bg-white p-4 rounded-lg shadow-sm max-w-[90%]">
+                                <div class="font-medium text-gray-900">AI Assistant</div>
+                                <div class="mt-1 text-gray-700">
+                                    <div class="mb-4">
+                                        <span class="font-semibold">Prediction:</span> 
+                                        <span class="text-red-600">Risk of Heart Disease</span>
+                                    </div>
+                                    <div class="prose">
+                                        <!-- AI Analysis content -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Parameters Summary -->
+                <div class="bg-gray-50 rounded-lg p-4">
+                    <h3 class="font-semibold text-gray-800 mb-2">Input Parameters</h3>
+                    <div class="grid grid-cols-2 gap-2 text-sm">
+                        <!-- Age -->
+                        <div class="text-gray-600">Age: <span class="text-gray-900">40</span></div>
+                    
+                        <!-- Sex -->
+                        <div class="text-gray-600">Sex: <span class="text-gray-900">F</span></div>
+                    
+                        <!-- Chest Pain Type -->
+                        <div class="text-gray-600">Chest Pain Type: <span class="text-gray-900">Typical Angina</span></div>
+                    
+                        <!-- Resting Blood Pressure -->
+                        <div class="text-gray-600">Resting Blood Pressure: <span class="text-gray-900">120 mm Hg</span></div>
+                    
+                        <!-- Cholesterol -->
+                        <div class="text-gray-600">Cholesterol: <span class="text-gray-900">200 mg/dl</span></div>
+                    
+                        <!-- Fasting Blood Sugar -->
+                        <div class="text-gray-600">Fasting Blood Sugar: <span class="text-gray-900">1</span></div>
+                    
+                        <!-- Resting ECG -->
+                        <div class="text-gray-600">Resting ECG: <span class="text-gray-900">Normal</span></div>
+                    
+                        <!-- Maximum Heart Rate Achieved -->
+                        <div class="text-gray-600">Maximum Heart Rate: <span class="text-gray-900">150 bpm</span></div>
+                    
+                        <!-- Exercise-Induced Angina -->
+                        <div class="text-gray-600">Exercise-Induced Angina: <span class="text-gray-900">N</span></div>
+                    
+                        <!-- Oldpeak -->
+                        <div class="text-gray-600">Oldpeak (ST Depression): <span class="text-gray-900">1.5</span></div>
+                    
+                        <!-- ST Slope -->
+                        <div class="text-gray-600">ST Slope: <span class="text-gray-900">Upsloping</span></div>
+                    
+                        <!-- Heart Disease -->
+                        <div class="text-gray-600">Heart Disease: <span class="text-gray-900">1</span></div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
