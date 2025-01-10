@@ -10,6 +10,7 @@ class OpenAIConfig:
     azure_endpoint: str
     deployment_name: str
 
+
 openai_config = OpenAIConfig(
     api_key=os.getenv("API_KEY"),
     api_version=os.getenv("API_VERSION"),
