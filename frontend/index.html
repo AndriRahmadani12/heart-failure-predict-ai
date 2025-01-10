@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Heart Failure Prediction</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="js/hardcodeResponse.js"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 </head>
 <body class="bg-gray-50">
@@ -104,7 +105,7 @@
                     </div>
 
                     <div class="flex space-x-4 mt-6">
-                        <button type="submit" class="flex-1 bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition duration-200">
+                        <button id="predictButton" type="submit" class="flex-1 bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition duration-200">
                             <i class="fas fa-brain mr-2"></i>Predict
                         </button>
                         <button type="reset" class="flex-1 bg-gray-200 text-gray-800 py-2 px-4 rounded-lg hover:bg-gray-300 transition duration-200">
@@ -134,11 +135,11 @@
                             <div class="ml-3 bg-white p-4 rounded-lg shadow-sm max-w-[90%]">
                                 <div class="font-medium text-gray-900">AI Assistant</div>
                                 <div class="mt-1 text-gray-700">
-                                    <div class="mb-4">
+                                    <div id="hasilPrediksi" class="mb-4">
                                         <span class="font-semibold">Prediction:</span> 
-                                        <span class="text-red-600">Risk of Heart Disease</span>
+                                        <span class="text-red-600">Normal</span>
                                     </div>
-                                    <div class="prose">
+                                    <div id="summarysaja" class="prose">
                                         <!-- AI Analysis content -->
                                     </div>
                                 </div>
@@ -150,7 +151,7 @@
                 <!-- Parameters Summary -->
                 <div class="bg-gray-50 rounded-lg p-4">
                     <h3 class="font-semibold text-gray-800 mb-2">Input Parameters</h3>
-                    <div class="grid grid-cols-2 gap-2 text-sm">
+                    <div id="parameterinput" class="grid grid-cols-2 gap-2 text-sm">
                         <!-- Age -->
                         <div class="text-gray-600">Age: <span class="text-gray-900">40</span></div>
                     
